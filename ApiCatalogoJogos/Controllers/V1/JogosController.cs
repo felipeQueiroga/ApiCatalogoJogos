@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace ApiCatalogoJogos.Controllers.V1
 {
 
-    [Route("api/V1[controller]")]
+    [Route("api/V1/[controller]")]
     [ApiController]
     public class JogosController : ControllerBase
     {
@@ -34,7 +34,7 @@ namespace ApiCatalogoJogos.Controllers.V1
             return Ok(jogos);
         }
 
-        [HttpGet("{idjogo:guid}")]
+        [HttpGet("{idJogo:guid}")]
         public async Task<ActionResult<JogoViewModel>> Obter([FromRoute] Guid idJogo)
         {
             var jogo = await _jogoService.Obter(idJogo);
@@ -60,7 +60,7 @@ namespace ApiCatalogoJogos.Controllers.V1
             }
         }
 
-        [HttpPut("{idjogo:guid}")]
+        [HttpPut("{idJogo:guid}")]
         public async Task<ActionResult> AtualizarJogo([FromRoute] Guid idJogo, [FromBody] JogoInputModel jogoInputModel)
         {
             try
@@ -90,7 +90,7 @@ namespace ApiCatalogoJogos.Controllers.V1
             }
         }
 
-        [HttpDelete("{idjogo:guid}")]
+        [HttpDelete("{idJogo:guid}")]
         public async Task<ActionResult> ApagarJogo([FromRoute] Guid idJogo)
         {
             try
